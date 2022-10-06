@@ -5,6 +5,7 @@ const { execSync } = require("child_process");
 const chalk = require("chalk");
 const inquirer = require("inquirer");
 const figlet = require("figlet");
+const fs = require("fs-extra");
 
 const gitCloneCommand =
   "git clone https://github.com/GO-Karma/karma-social-react-native-onboarding.git";
@@ -14,6 +15,7 @@ const installDependenciesCommands = {
   npm: "cd karma-social-react-native-onboarding && npm i",
   pnpm: "cd karma-social-react-native-onboarding && pnpm install",
 };
+const gitInitCommand = "cd karma-social-react-native-onboarding && git init";
 
 const runCommand = (command) => {
   try {
@@ -34,6 +36,12 @@ const init = async () => {
   if (!isDownloaded) process.exit(-1);
 
   console.log(chalk.green("\nTemplate downloaded\n"));
+
+  fs.removeSync("./karma-social-react-native-onboarding/.git");
+
+  runCommand(gitInitCommand);
+
+  console.log("");
 
   const prompt = inquirer.createPromptModule();
 
@@ -58,7 +66,7 @@ const init = async () => {
   if (!isDependenciesDownloaded) process.exit(-1);
 
   figlet("GoKarma!", "Slant", (err, data) => {
-    console.log(data);
+    console.log(chalk.hex("#7D24E7")(data));
     console.log(
       chalk.green(
         "\nCongratulations! Everything done. Run following command to change directory"
