@@ -1,0 +1,14 @@
+{
+  "name": "@gokarma/create-react-native-onboarding-app",
+  "version": "1.0.0",
+  "description": "npx script to set up React Native onboarding app",
+  "bin": "./bin/create-react-native-onboarding-app",
+  "repository": "git@github.com:GO-Karma/create-react-native-onboarding-app.git",
+  "author": "AuroPick <aykutsakibusiness@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.3"
+  }
+}
